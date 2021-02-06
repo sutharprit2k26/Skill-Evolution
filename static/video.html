@@ -11,13 +11,12 @@
 <body class="agora-theme">
   <div class="navbar-fixed">
     <nav class="agora-navbar">
-      <div class="nav-wrapper  valign-wrapper">
-       <h5 class="left-align">Team Soul Video - Communication Platform</h5>
-        
+      <div class="nav-wrapper agora-primary-bg valign-wrapper">
+        <h5 class="left-align">Basic Video Communication</h5>
+        <a href="https://github.com/AgoraIO/Basic-Video-Call/tree/master/One-to-One-Video/Agora-Web-Tutorial-1to1" class="agora-github-pin"></a>
       </div>
     </nav>
   </div>
-
   <form id="form" class="row col l12 s12">
     <div class="row container col l12 s12">
       <div class="col" style="min-width: 433px; max-width: 443px">
@@ -33,16 +32,17 @@
                 <div class="col s12">
                 <button class="btn btn-raised btn-primary waves-effect waves-light" id="join">JOIN</button>
                 <button class="btn btn-raised btn-primary waves-effect waves-light" id="leave">LEAVE</button>
-            
+                <button class="btn btn-raised btn-primary waves-effect waves-light" id="publish">PUBLISH</button>
+                <button class="btn btn-raised btn-primary waves-effect waves-light" id="unpublish">UNPUBLISH</button>
                 </div>
               </div>
           </div>
         </div>
         <ul class="collapsible card agora-secondary-border" style="margin-top: .4rem; border: 1px ">
           <li>
-            <!-- <div class="collapsible-header agora-secondary-bg">
+            <div class="collapsible-header agora-secondary-bg">
               <h8 class="center-align">ADVANCED SETTINGS</h8>
-            </div> -->
+            </div>
             <div class="collapsible-body card-content">
               <div class="row">
                 <div class="col s12">
@@ -427,8 +427,47 @@
       });
     }
 
-    
-     
+    function publish (rtc) {
+      if (!rtc.client) {
+        Toast.error("Please Join Room First");
+        return;
+      }
+      if (rtc.published) {
+        Toast.error("Your already published");
+        return;
+      }
+      var oldState = rtc.published;
+
+      // publish localStream
+      rtc.client.publish(rtc.localStream, function (err) {
+        rtc.published = oldState;
+        console.log("publish failed");
+        Toast.error("publish failed")
+        console.error(err);
+      })
+      Toast.info("publish")
+      rtc.published = true
+    }
+
+    function unpublish (rtc) {
+      if (!rtc.client) {
+        Toast.error("Please Join Room First");
+        return;
+      }
+      if (!rtc.published) {
+        Toast.error("Your didn't publish");
+        return;
+      }
+      var oldState = rtc.published;
+      rtc.client.unpublish(rtc.localStream, function (err) {
+        rtc.published = oldState;
+        console.log("unpublish failed");
+        Toast.error("unpublish failed");
+        console.error(err);
+      })
+      Toast.info("unpublish")
+      rtc.published = false;
+    }
 
     function leave (rtc) {
       if (!rtc.client) {
@@ -502,8 +541,23 @@
         }
       })
 
-     
-     
+      $("#publish").on("click", function (e) {
+        console.log("publish")
+        e.preventDefault();
+        var params = serializeformData();
+        if (validator(params, fields)) {
+          publish(rtc);
+        }
+      });
+
+      $("#unpublish").on("click", function (e) {
+        console.log("unpublish")
+        e.preventDefault();
+        var params = serializeformData();
+        if (validator(params, fields)) {
+          unpublish(rtc);
+        }
+      });
 
       $("#leave").on("click", function (e) {
         console.log("leave")
