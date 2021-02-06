@@ -1,0 +1,5 @@
+step 1 : first of all go to the folder location in CMD for windows user and for linux user go to yhe location in terminal
+step 2 : Run the python script bt :
+          python app.py
+step 3 : now copy the address shown like http://127.0.0.1:5000/ open this link on your browser and just enjoy the project         
+          

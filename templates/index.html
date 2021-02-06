@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+
+        <!--jQuery library--> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!--Latest compiled and minified JavaScript--> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Skill Evaluation Bot :)</title>
+        <style>
+            body,html{
+                height: 100%;
+                width: 100%;
+               }
+            
+            .heading{
+
+                height: 100px;
+                  color: salmon;
+                  font-weight: bold;
+                  font-family: sans-serif;
+           }
+           .heading h1{
+            font-size: 60px;
+           }
+           .div_pad{
+            padding: 11px;
+
+           }
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 185px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+}
+
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: salmon;
+  color: white;
+  transform: rotateY(180deg);
+}
+.footer{
+    background: salmon;
+    color: white;
+    font-size: 20px;
+}
+.p{
+    box-shadow: 0px 0px 15px #aeaeae;
+}
+
+        </style>
+    </head>
+    <body>
+        <div class="container heading">
+            <marquee behavior="alternate"><h1>Skill Evaluation Bot  :)</h1></marquee>
+        </div>
+        <div class="container">
+          
+            <div class="visible-lg col-xs-6 col-sm-6 col-md-5 column_style div_pad">
+                <div class="panel panel-primary p">
+                    <div class="panel-heading">
+                        <center><h1>We Love Hiring :)</h1></center>
+                    </div>
+                    <div class="panel-body">
+                      <center> 
+                        <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src ="../static/images/a.jpg" alt="Avatar" style="width:300px;height:185px;">
+    </div>
+    <div class="flip-card-back">
+    	<h1>: Team Soul :</h1>
+    	
+      <h3>Dikshant Mali</h3>
+      
+      <h3>Pritesh Kumar</h3>
+    </div>
+  </div>
+</div>
+</center>
+<center> 
+                        <div class="flip-card" style="margin-top: 30px;">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="../static/images/b.png" alt="Avatar" style="width:300px;height:185px;">
+    </div>
+    <div class="flip-card-back">
+    	<h1>: Team Soul :</h1>
+      <h3>Akshat Saraf</h3>
+     
+      <h3>Dhruv Sevak</h3>
+      
+    </div>
+  </div>
+
+</div>
+</center>
+                    </div>
+                    <div class="panel-footer">
+                    
+<div>
+  <h3>Contact us : Team Soul</h3>
+</div>    
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-7 column_style div_pad">
+                <div class="panel panel-primary p">
+                        <div class="panel-heading">
+                        <div class="row">
+                           <div class="col-xs-9">
+                              <h1 style="padding-top:-20px ">Companies Demands.. :)</h1>   
+                           </div>
+                            <div class="col-xs-3">
+                               <img src="../static/images/meeting.png" height="70px" width="70px" style="margin-left: ">
+                         
+                            </div>
+                        </div>
+                
+                        
+                            
+                        </div>
+                <div class="panel-body">
+                    <form method="POST">
+                    
+                        <div class="form-group">
+                            <label >Backlog(0-3)</label>
+                            <input maxlength="1" class="form-control" type="text" name="bl" onkeyup="lettersOnly(this)">
+                          
+                        </div>
+                        <div class="form-group">
+                            <label >Attendence</label>
+                            <select class="form-control" name="ad" >
+                              <option>None</option>
+                              <option> less than 60 </option>
+                              <option> 60 to 75 </option>
+                              <option> grater than 75 </option>
+                            </select>  
+
+                          </div>
+                        <div class="form-group">
+                            <label >CGPA</label>
+                          <select class="form-control" name="cg" >
+                            <option>None</option>
+                            <option> less than 6.0 </option>
+                            <option> 6.0 to 8.0 </option>
+                            <option> grater than 8.0 </option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                                     <label>Skills</label> 
+                        <select class="form-control" name="sk">
+                          <option>None</option>
+                            <option>App development</option>
+                            <option>Web development</option>
+                            <option>Cyber Security</option>
+                        </select>
+                    </div>
+                        <div class="form-group">
+                            <label >Experience(0-3)</label>
+                            <input maxlength="1"class="form-control" type="text" name="exp" onkeyup="lettersOnly(this)">
+                          
+                        </div>
+                        <div class="form-group">
+                            <a href="/static/video.html" class="btn btn-primary">video call</a>
+                        </div>
+                       
+                        <div class="form-group">
+                            <button type="submit" value="submit" class="btn btn-danger form-control">Submit</button>
+                        </div>
+                       
+                      
+                    </form>
+                    
+                        </div>
+                        
+                    </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <marquee behavior="alternate">copyright@Team : Soul </marquee>
+        </div>
+    </body>
+    <script type="text/javascript">
+      function lettersOnly(input) {
+        var regex = /[^0-3]/gi;
+        input.value = input.value.replace(regex,"");
+      }
+    </script>
+
+</html>
